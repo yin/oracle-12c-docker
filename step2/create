@@ -15,6 +15,7 @@ export PATH
 EOF
 
 mount -t tmpfs shmfs -o size=4g /dev/shm
+chown -R oracle:oinstall /u01/app/oracle/oradata
 
 date
 echo "Creating database..."
@@ -32,7 +33,7 @@ echo "Running catcdb.sql..."
 cd $ORACLE_HOME/rdbms/admin
 cp catcdb_int.sql catcdb-e.sql
 echo "exit" >> catcdb.sql
-su -s /bin/bash oracle -c "sqlplus / as sysdba @?/rdbms/admin/catcdb-e.sql > /tmp/catcdb.log" <<EOF
+su -s /bin/bash oracle -c "sqlplus / as sysdba @?/rdbms/admin/catcdb-e.sql | tee /tmp/catcdb.log" <<EOF
 Password1
 Password1
 TEMP
