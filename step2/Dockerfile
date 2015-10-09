@@ -1,4 +1,4 @@
-FROM oracle-12c:installed
+FROM oracle-12c:installed-cdb
 MAINTAINER Wouter Scherphof <wouter.scherphof@gmail.com>
 
 RUN rm -rf /tmp/install

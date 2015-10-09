@@ -1,4 +1,4 @@
-FROM oracle-12c:created
+FROM oracle-12c:created-cdb
 MAINTAINER Wouter Scherphof <wouter.scherphof@gmail.com>
 
 RUN rm /tmp/create

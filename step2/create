@@ -30,9 +30,13 @@ echo ""
 date
 echo "Running catcdb.sql..."
 cd $ORACLE_HOME/rdbms/admin
-cp catcdb.sql catcdb-e.sql
+cp catcdb_int.sql catcdb-e.sql
 echo "exit" >> catcdb.sql
-su -s /bin/bash oracle -c "sqlplus / as sysdba @?/rdbms/admin/catcdb-e.sql > /tmp/catcdb.log"
+su -s /bin/bash oracle -c "sqlplus / as sysdba @?/rdbms/admin/catcdb-e.sql > /tmp/catcdb.log" <<EOF
+Password1
+Password1
+TEMP
+EOF
 rm catcdb.sql
 echo ""
 
