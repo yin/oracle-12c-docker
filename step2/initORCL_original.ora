@@ -28,4 +28,3 @@ undo_tablespace='UNDOTBS1'
 # devices
 # control_files = (ora_control1, ora_control2)
 compatible ='12.1.0'
-enable_pluggable_database=true

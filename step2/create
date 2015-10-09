@@ -24,34 +24,16 @@ echo ""
 date
 echo "Creating password file..."
 cd $ORACLE_HOME/dbs
-su -s /bin/bash oracle -c "$ORACLE_HOME/bin/orapwd FILE=orapw$ORACLE_SID password=change_on_install"
+su -s /bin/bash oracle -c "$ORACLE_HOME/bin/orapwd FILE=orapw$ORACLE_SID password=Password1"
 echo ""
 
 date
-echo "Running catalog.sql..."
+echo "Running catcdb.sql..."
 cd $ORACLE_HOME/rdbms/admin
-cp catalog.sql catalog-e.sql
-echo "exit" >> catalog-e.sql
-su -s /bin/bash oracle -c "sqlplus / as sysdba @?/rdbms/admin/catalog-e.sql > /tmp/catalog.log"
-rm catalog-e.sql
-echo ""
-
-date
-echo "Running catproc.sql..."
-cd $ORACLE_HOME/rdbms/admin
-cp catproc.sql catproc-e.sql
-echo "exit" >> catproc-e.sql
-su -s /bin/bash oracle -c "sqlplus / as sysdba @?/rdbms/admin/catproc-e.sql > /tmp/catproc.log"
-rm catproc-e.sql
-echo ""
-
-date
-echo "Running pupbld.sql..."
-cd $ORACLE_HOME/sqlplus/admin
-cp pupbld.sql pupbld-e.sql
-echo "exit" >> pupbld-e.sql
-su -s /bin/bash oracle -c "sqlplus system/manager @?/sqlplus/admin/pupbld-e.sql > /tmp/pupbld.log"
-rm pupbld-e.sql
+cp catcdb.sql catcdb-e.sql
+echo "exit" >> catcdb.sql
+su -s /bin/bash oracle -c "sqlplus / as sysdba @?/rdbms/admin/catcdb-e.sql > /tmp/catcdb.log"
+rm catcdb.sql
 echo ""
 
 echo "Finalizing install and shutting down the database..."

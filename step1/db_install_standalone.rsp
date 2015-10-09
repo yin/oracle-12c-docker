@@ -232,12 +232,12 @@ oracle.install.db.config.starterdb.SID=ORCL
 # The value can be either "true" or "false". If left blank it will be assumed
 # to be "false".
 #-------------------------------------------------------------------------------
-oracle.install.db.ConfigureAsContainerDB=true
+oracle.install.db.ConfigureAsContainerDB=
 
 #-------------------------------------------------------------------------------
 # Specify the  Pluggable Database name for the pluggable database in Container Database.
 #-------------------------------------------------------------------------------
-oracle.install.db.config.PDBName=PDBORCL
+oracle.install.db.config.PDBName=
 
 #-------------------------------------------------------------------------------
 # Specify the Starter Database character set.
